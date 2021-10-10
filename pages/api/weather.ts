@@ -9,5 +9,7 @@ export async function getWeatherInfo() {
 export default async function handler(req: any, res: any) {
   const weatherInfo = await getWeatherInfo();
 
+  if (weatherInfo?.cod !== 200) console.dir({ weatherInfo }, { depth: null });
+
   return res.status(200).json(weatherInfo);
 }
