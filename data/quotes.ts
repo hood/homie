@@ -1,0 +1,23 @@
+export default Object.seal([
+  "“Software is like sex: it's better when it's free.” \n- Linus Torvalds",
+  "“Intelligence is the ability to avoid doing work, yet getting the work done.” \n- Linus Torvalds",
+  "“I like offending people, because I think people who get offended should be offended.” \n- Linus Torvalds",
+  "“Two things are infinite: the universe and human stupidity; and I'm not sure about the universe.” \n― Albert Einstein",
+  "“Be yourself; everyone else is already taken.” \n― Oscar Wilde",
+  "“In three words I can sum up everything I've learned about life: it goes on.” \n― Robert Frost",
+  "“A friend is someone who knows all about you and still loves you.” \n― Elbert Hubbard",
+  "“One cannot answer for his courage when he has never been in danger.” \n― Francois de La Rochefoucauld, Maxims",
+  "“Some people are in such utter darkness that they will burn you just to see a light. Try not to take it personally.” \n― Kamand Kojouri",
+  "“Most writers regard the truth as their most valuable possession, and therefore are economical in its use.” \n― Mark Twain",
+  "“Learning is not compulsory... neither is survival.” \n― W. Edwards Deming",
+  "“A cynic is just a wounded romantic.“ \n― Pamela Jaye Smith",
+  "“The truth brings no man a fortune.“ \n― Jean-Jacques Roussau",
+  "“In our leisure we reveal what kind of people we are.“ \n― Ovid",
+  "“Beauty is a fragile gift.“ \n― Ovid",
+  "“Nothing is more powerful than custom or habit.“ \n― Ovid",
+  "“The man who has experienced shipwreck shudders even at a calm sea.“ \n― Ovid",
+  "“Medicine sometimes snatches away health, sometimes gives it.“ \n― Ovid",
+]).map((quote) => ({
+  text: quote.split("\n")[0].trim(),
+  author: quote.split("\n")[1].trim(),
+}));
