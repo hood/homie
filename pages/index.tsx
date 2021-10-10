@@ -26,16 +26,10 @@ const Dashboard1 = () => {
               className="w-1/2 h-48 bg-gray-800 rounded-xl flex flex-col"
               style={{ backgroundColor: "#2a2a34" }}
             >
-              <p
-                className="text-2xl m-auto text-center mb-2 font-light"
-                style={{ color: "#ffd380" }}
-              >
+              <p className="text-2xl m-auto text-center mb-2 font-light text-accent">
                 {format(new Date(), "EEEE")}
               </p>
-              <p
-                className="text-2xl m-auto text-center font-bold mt-2"
-                style={{ color: "#ffd380" }}
-              >
+              <p className="text-2xl m-auto text-center font-bold mt-2 text-accent">
                 {format(new Date(), "dd/MM/yyyy")}
               </p>
             </div>
@@ -69,4 +63,3 @@ const Dashboard1 = () => {
 };
 
 export default Dashboard1;
-

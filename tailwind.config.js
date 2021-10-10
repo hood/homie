@@ -7,6 +7,7 @@ module.exports = {
     colors: {
       ...colors,
       gray: colors.warmGray,
+      accent: "#ffd380",
     },
     fontFamily: {
       sans: ["Poppins", "ui-sans-serif", "system-ui"],

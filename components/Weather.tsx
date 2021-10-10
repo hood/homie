@@ -71,10 +71,7 @@ const Weather = () => {
         src={`http://openweathermap.org/img/wn/${data.current.weather[0].icon}@2x.png`}
         className="w-20 mx-auto mt-auto"
       />
-      <p
-        className="text-4xl mt-2 mx-auto text-center font-light"
-        style={{ color: "#ffd380" }}
-      >
+      <p className="text-4xl mt-2 mx-auto text-center font-light text-accent">
         {data.current.temp} °C
       </p>
       <p
