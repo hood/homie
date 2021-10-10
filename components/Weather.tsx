@@ -34,28 +34,10 @@ const Clouds = (
   </span>
 );
 
-// https://openweathermap.org/api/one-call-api
-const getWeather = async () => {
-  const res = await fetch(
-    `https://api.openweathermap.org/data/2.5/onecall?lat=${process.env.LOCATION_LATITUDE}&lon=${process.env.LOCATION_LONGITUDE}&units=metric&esclude=minutely&appid=${process.env.OPENWEATHERMAP_API_KEY}`
-  );
-  return await res.json();
-};
-
 const Animations = { Rain, Clouds };
 
-const Weather = () => {
-  const [data, setData] = useState<any>();
-
-  useEffect(() => {
-    async function init() {
-      setData(await getWeather());
-    }
-
-    init();
-  }, []);
-
-  if (!data)
+const Weather = ({ weatherInfo }) => {
+  if (!weatherInfo)
     return (
       <span className="m-auto">
         <HalfCircleSpinner color="#ffd380" />
@@ -64,21 +46,21 @@ const Weather = () => {
 
   return (
     <div className="relative overflow-hidden h-full w-full">
-      {Animations[data.current.weather[0].main]
-        ? Animations[data.current.weather[0].main]
+      {Animations[weatherInfo.current.weather[0].main]
+        ? Animations[weatherInfo.current.weather[0].main]
         : null}
       <img
-        src={`http://openweathermap.org/img/wn/${data.current.weather[0].icon}@2x.png`}
+        src={`http://openweathermap.org/img/wn/${weatherInfo.current.weather[0].icon}@2x.png`}
         className="w-20 mx-auto mt-auto"
       />
       <p className="text-4xl mt-2 mx-auto text-center font-light text-accent">
-        {data.current.temp} °C
+        {weatherInfo.current.temp} °C
       </p>
       <p
         className="text-sm mt-1 mx-auto mb-auto text-center font-light"
         style={{ color: "#dda260" }}
       >
-        Feels like {data.current.feels_like} °C
+        Feels like {weatherInfo.current.feels_like} °C
       </p>
     </div>
   );

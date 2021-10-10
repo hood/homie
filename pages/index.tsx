@@ -5,7 +5,7 @@ import ShortCuts from "../components/ShortCuts";
 import Weather from "../components/Weather";
 import quotes from "../data/quotes";
 
-const Dashboard1 = () => {
+const Dashboard1 = ({ weatherInfo }) => {
   const [quote] = useState<{ text: string; author: string }>(
     quotes[Math.floor(Math.random() * quotes.length)]
   );
@@ -37,7 +37,7 @@ const Dashboard1 = () => {
               className="w-1/2 h-48 bg-gray-800 rounded-xl flex flex-col"
               style={{ backgroundColor: "#2a2a34" }}
             >
-              <Weather />
+              <Weather weatherInfo={weatherInfo} />
             </div>
           </div>
           <div
@@ -63,3 +63,19 @@ const Dashboard1 = () => {
 };
 
 export default Dashboard1;
+
+export async function getServerSideProps(context: any) {
+  const protocol: string = context.req.headers["x-forwarded-proto"] || "http";
+  const baseURL: string = context.req
+    ? `${protocol}://${context.req.headers.host}`
+    : "";
+
+  const rawWeatherInfo = await fetch(baseURL + "/api/weather");
+  const weatherInfo = await rawWeatherInfo.json();
+
+  return {
+    props: {
+      weatherInfo,
+    },
+  };
+}

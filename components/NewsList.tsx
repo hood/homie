@@ -38,8 +38,6 @@ const NewsList = () => {
   }, []);
 
   useEffect(() => {
-    console.dir({ jPressed, kPressed, lPressed });
-
     jPressed && current < feed?.length - 1 && setCurrent(current + 1);
     kPressed && current > 0 && setCurrent(current - 1);
 
